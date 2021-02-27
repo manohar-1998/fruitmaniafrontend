@@ -1,0 +1,11 @@
+import axios from "axios";
+import { isAuthenticated } from "./auth";
+const {API} = require("./Backend");
+// const { user } = isAuthenticated();
+export const Signin = (userData)=> axios.post(`${API}/Signin`,userData);
+export const Signout = () => axios.get(`${API}/signout`);
+export const getProducts = () => axios.get(`${API}/products`);
+export const updatedProduct = (productId,userid,data) => axios.put(`${API}/product/${productId}/${userid}`,data);
+export const deleteproduct = (id,userid) => axios.delete(`${API}/product/${id}/${userid}`);
+export const getproductById = (productId) =>  axios.get(`${API}/product/${productId}`);
+export const createProduct = (userid,data) => axios.post(`${API}/product/create/${userid}`,data);
